@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Wagento Have I Been Pwned Password Strength Indicator
+ *
+ * Adds test to built-in password strength indicator to check if password has
+ * been used on other sites.
+ *
+ * @author Joseph Leedy <joseph@wagento.com>
+ * @copyright Copyright (c) Wagento Creative LLC. (https://www.wagento.com/)
+ * @license https://opensource.org/licenses/OSL-3.0.php Open Software License 3.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Wagento_HIBPPSI" setup_version="0.1.0">
+        <sequence>
+            <module name="Magento_Customer"/>
+        </sequence>
+    </module>
+</config>

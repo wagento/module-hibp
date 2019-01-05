@@ -1,6 +1,6 @@
 <?php
 /**
- * Wagento Have I Been Pwned Password Strength Indicator
+ * Wagento Have I Been Pwned?
  *
  * Adds test to built-in password strength indicator to check if password has
  * been used on other sites.
@@ -11,6 +11,6 @@
  */
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Wagento_HIBPPSI',
+    'Wagento_HIBP',
     __DIR__
 );

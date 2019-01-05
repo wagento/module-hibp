@@ -1,5 +1,5 @@
 {
-    "name": "wagento/module-hibp-password-strength-indicator",
+    "name": "wagento/module-hibp",
     "description": "Adds test to built-in password strength indicator to check if password has been used on other sites.",
     "type": "magento2-module",
     "license": "OSL-3.0",
@@ -17,7 +17,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Wagento\\HIBPPSI\\": ""
+            "Wagento\\HIBP\\": ""
         }
     }
 }

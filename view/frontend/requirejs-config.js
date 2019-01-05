@@ -1,5 +1,5 @@
 /**
- * Wagento Have I Been Pwned Password Strength Indicator
+ * Wagento Have I Been Pwned?
  *
  * Adds test to built-in password strength indicator to check if password has
  * been used on other sites.
@@ -12,7 +12,7 @@
 var config = {
     map: {
         '*': {
-            passwordStrengthIndicator: 'Wagento_HIBPPSI/js/password-strength-indicator'
+            passwordStrengthIndicator: 'Wagento_HIBP/js/password-strength-indicator'
         }
     }
 };

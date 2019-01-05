@@ -1,18 +1,18 @@
 <?php
 /**
- * Wagento Have I Been Pwned Password Strength Indicator
+ * Wagento Have I Been Pwned?
  *
  * Adds test to built-in password strength indicator to check if password has
  * been used on other sites.
  *
- * @package Wagento\HIBPPSI\Controller\Index
+ * @package Wagento\HIBP\Controller\Index
  * @author Joseph Leedy <joseph@wagento.com>
  * @copyright Copyright (c) Wagento Creative LLC. (https://www.wagento.com/)
  * @license https://opensource.org/licenses/OSL-3.0.php Open Software License 3.0
  */
 declare(strict_types=1);
 
-namespace Wagento\HIBPPSI\Controller\Index;
+namespace Wagento\HIBP\Controller\Index;
 
 use Dragonbe\Hibp\HibpFactory;
 use Magento\Framework\App\Action\Action;
@@ -23,7 +23,7 @@ use Magento\Framework\Exception\NotFoundException;
 /**
  * Ajax POST Controller
  *
- * @package Wagento\HIBPPSI\Controller\Index
+ * @package Wagento\HIBP\Controller\Index
  * @author Joseph Leedy <joseph@wagento.com>
  */
 class AjaxPost extends Action

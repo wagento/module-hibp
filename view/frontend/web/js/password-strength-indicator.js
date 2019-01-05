@@ -6,7 +6,7 @@
 define([
     'jquery',
     'Magento_Customer/js/zxcvbn',
-    'Wagento_HIBPPSI/js/hibp',
+    'Wagento_HIBP/js/hibp',
     'mage/translate',
     'mage/validation'
 ], function ($, zxcvbn, hibp, $t) {

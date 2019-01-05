@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Wagento Have I Been Pwned Password Strength Indicator
+ * Wagento Have I Been Pwned?
  *
  * Adds test to built-in password strength indicator to check if password has
  * been used on other sites.
@@ -14,7 +14,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
         <route id="hibp" frontName="hibp">
-            <module name="Wagento_HIBPPSI"/>
+            <module name="Wagento_HIBP"/>
         </route>
     </router>
 </config>

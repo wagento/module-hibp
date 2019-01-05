@@ -10,6 +10,9 @@
         }
     ],
     "require": {
+        "php": "~7.2.0",
+        "magento/framework": "102.0.*",
+        "magento/module-customer": "102.0.*",
         "dragonbe/hibp": "^0.0.5"
     },
     "autoload": {

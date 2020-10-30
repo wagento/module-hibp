@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Wagento\HIBP\Controller\Index;
 
 use Dragonbe\Hibp\HibpFactory;
-use Magento\Framework\App\Action\Action;
-use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Exception\NotFoundException;
 
@@ -26,20 +26,35 @@ use Magento\Framework\Exception\NotFoundException;
  * @package Wagento\HIBP\Controller\Index
  * @author Joseph Leedy <joseph@wagento.com>
  */
-class AjaxPost extends Action
+class AjaxPost implements HttpPostActionInterface
 {
     /**
-     * @var \Dragonbe\Hibp\HibpFactory
+     * @var RequestInterface
+     */
+    protected RequestInterface $request;
+    /**
+     * @var ResultFactory
+     */
+    protected ResultFactory $resultFactory;
+    /**
+     * @var HibpFactory
      */
     private $hibpFactory;
 
+    /**
+     * AjaxPost constructor.
+     * @param HibpFactory $hibpFactory
+     * @param RequestInterface $request
+     * @param ResultFactory $resultFactory
+     */
     public function __construct(
-        Context $context,
-        HibpFactory $hibpFactory
+        HibpFactory $hibpFactory,
+        RequestInterface $request,
+        ResultFactory $resultFactory
     ) {
-        parent::__construct($context);
-
         $this->hibpFactory = $hibpFactory;
+        $this->request = $request;
+        $this->resultFactory = $resultFactory;
     }
 
     /**
@@ -47,12 +62,12 @@ class AjaxPost extends Action
      */
     public function execute()
     {
-        if (!$this->getRequest()->isAjax() || !$this->getRequest()->isPost()) {
+        if (!$this->request->isAjax() || !$this->request->isPost()) {
             throw new NotFoundException(__('Action is not available.'));
         }
 
         $hibp = $this->hibpFactory::create();
-        $password = $this->getRequest()->getPost('password');
+        $password = $this->request->getPost('password');
         $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
 
         $resultJson->setData([

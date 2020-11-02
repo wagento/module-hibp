@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace Wagento\HIBP\Controller\Index;
 
-use Dragonbe\Hibp\HibpFactory;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Exception\NotFoundException;
+use Wagento\HIBP\Model\Hibp;
 
 /**
  * Ajax POST Controller
@@ -37,22 +37,22 @@ class AjaxPost implements HttpPostActionInterface
      */
     protected ResultFactory $resultFactory;
     /**
-     * @var HibpFactory
+     * @var Hibp
      */
-    private $hibpFactory;
+    protected Hibp $hibp;
 
     /**
      * AjaxPost constructor.
-     * @param HibpFactory $hibpFactory
+     * @param Hibp $hibp
      * @param RequestInterface $request
      * @param ResultFactory $resultFactory
      */
     public function __construct(
-        HibpFactory $hibpFactory,
+        Hibp $hibp,
         RequestInterface $request,
         ResultFactory $resultFactory
     ) {
-        $this->hibpFactory = $hibpFactory;
+        $this->hibp = $hibp;
         $this->request = $request;
         $this->resultFactory = $resultFactory;
     }
@@ -66,13 +66,13 @@ class AjaxPost implements HttpPostActionInterface
             throw new NotFoundException(__('Action is not available.'));
         }
 
-        $hibp = $this->hibpFactory::create();
+        $hibp = $this->hibp;
         $password = $this->request->getPost('password');
         $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
 
         $resultJson->setData([
             'pwned' => $hibp->isPwnedPassword($password),
-            'count' => count($hibp)
+            'count' => $hibp->count()
         ]);
 
         return $resultJson;

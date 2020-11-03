@@ -10,9 +10,11 @@
  */
 
 var config = {
-    map: {
-        '*': {
-            passwordStrengthIndicator: 'Wagento_HIBP/js/password-strength-indicator'
+    config: {
+        mixins: {
+            'Magento_Customer/js/password-strength-indicator': {
+                'Wagento_HIBP/js/password-strength-indicator-mixin': true
+            }
         }
     }
 };

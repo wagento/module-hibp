@@ -156,6 +156,7 @@
                 <div id="hibp-count" class="hibp-count mage-error" data-role="hibp-count" aria-live="polite" style="display: none;" generated="false">
                     <?= __('This password has been used %1 times on other sites.', '<span class="hibp-count-label" data-role="hibp-count-label">0</span>') ?>
                     (<?= $escaper->escapeHtml(__('Source:')) ?> <a href="https://haveibeenpwned.com/" target="_blank">HaveIBeenPwned.com</a>)
+                    <span class="hibp-strict-message" data-role="hibp-strict-message"><?= __('Please choose another password.') ?></span>
                 </div>
             </div>
 
@@ -231,7 +232,8 @@ require([
     {
         ".field.password": {
             "passwordStrengthIndicator": {
-                "formSelector": "form.form-create-account"
+                "formSelector": "form.form-create-account",
+                "hibpMode": "<?php echo $block->getConfig('hibp/general/mode')?>"
             }
         }
     }

@@ -12,6 +12,9 @@ define([
             passwordFieldSelector: "input[name=password]",
             hibpCountSelector: '[data-role=hibp-count]',
             hibpCountLabelSelector: '[data-role=hibp-count-label]',
+            submitButtonSelector: ":input[type=submit]",
+            hibpstrictMessageSelector: '[data-role=hibp-strict-message]',
+            hibpMode: ''
         },
 
         _bind: function () {
@@ -40,11 +43,18 @@ define([
         _displayHibpCount: function (count, self) {
             if (count === 0) {
                 $(self.options.hibpCountSelector).hide();
+                $(self.options.submitButtonSelector).prop('disabled', false);
                 return;
             }
-
             $(self.options.hibpCountSelector).show();
             $(self.options.hibpCountLabelSelector).text(count);
+            if(self.options.hibpMode == 'restrict') {
+                $(self.options.hibpstrictMessageSelector).show();
+                $(self.options.submitButtonSelector).prop('disabled', true);
+            } else {
+                $(self.options.hibpstrictMessageSelector).hide();
+                $(self.options.submitButtonSelector).prop('disabled', false);
+            }
         },
     };
 

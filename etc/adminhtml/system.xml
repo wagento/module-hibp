@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="wagento" sortOrder="100" translate="label">
+            <label>Wagento Modules</label>
+        </tab>
+        <section id="hibp" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
+            <label>HIBP Checker</label>
+            <tab>wagento</tab>
+            <resource>Wagento_HIBP::config_wagento_hibp</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <field id="mode" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Mode</label>
+                    <comment>In the restrict mode system will restrict users from using pwned password</comment>
+                    <source_model>Wagento\HIBP\Model\Config\Source\Mode</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

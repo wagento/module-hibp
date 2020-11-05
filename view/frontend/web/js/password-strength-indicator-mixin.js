@@ -29,7 +29,6 @@ define([
         _checkHibp: function () {
             var self = this;
             var password = $(self.options.passwordFieldSelector).val();
-            console.log("MIXIN"+password);
             hibp(password, function (result) {
                 self._displayHibpCount(result.count, self);
             });

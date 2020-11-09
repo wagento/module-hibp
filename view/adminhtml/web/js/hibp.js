@@ -5,7 +5,7 @@ define([
     'use strict';
 
     return function hibp(password, doneCallback) {
-        const ajaxPostUrl = urlBuilder.buil('hibp/index/ajaxPost');
+        const ajaxPostUrl = urlBuilder.build('hibp/index/ajaxPost');
 
         $.ajax({
             url: ajaxPostUrl,

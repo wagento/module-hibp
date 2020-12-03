@@ -7,24 +7,40 @@
 /** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
 /** @var \Wagento\HIBP\Block\Adminhtml\User $block */
 ?>
+<?php
+$mode = $block->getConfig('hibp/general/mode');
+?>
 <?php $scriptString = <<<script
 
 require([
-    "jquery",
-    "domReady",
-    'Wagento_HIBP/js/hibp'
-], function($, domReady, hibp){
+        "jquery",
+        "domReady",
+        'Wagento_HIBP/js/hibp'
+    ], function($, domReady, hibp){
 
-    domReady(function () {
-        $("#user_password").on("change", function(){
-            password = $(this).val();
-             hibp(password, function (result) {
-                alert(result.count);
+        domReady(function () {
+            $("#user_password").on("change", function(){
+                var mode = '<?= $mode ?>';
+                var validText = '<label class="mage-error"><div id="hibp-count" class="hibp-count mage-error" data-role="hibp-count" aria-live="polite" generated="false">';
+
+                password = $(this).val();
+                hibp(password, function (result) {
+                    validText += 'This password has been used <span class="hibp-count-label" data-role="hibp-count-label">' + result.count  +'</span> times on other sites.';
+                    validText += '(Source: <a href="https://haveibeenpwned.com/" target="_blank">HaveIBeenPwned.com</a>)';
+                    validText += '</div></label>';
+                    if (result.count > 0) {
+                        if (mode === 'restrict') {
+                            validText +='<span class="hibp-strict-message" data-role="hibp-strict-message">Please choose another password.</span>';
+                            $('#save').prop('disabled', true);
+                        } else {
+                            $('#save').prop('disabled', false);
+                        }
+                        $(validText).insertAfter($("#user_password"));
+                    }
+                });
             });
         });
     });
-
-});
 
 script;
 ?>

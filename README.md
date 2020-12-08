@@ -44,7 +44,7 @@ Features
  
  How to Contribute?
  --------------
- To learn about how to make a contribution, <a href="module-hibp/CONTRIBUTING.md">click here.</a>
+ To learn about how to make a contribution, <a href="CONTRIBUTING.md">click here.</a>
     
  
  

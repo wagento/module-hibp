@@ -6,7 +6,7 @@
  * been used on other sites.
  *
  * @package Wagento\HIBP\Controller\Index
- * @author Joseph Leedy <joseph@wagento.com>
+ * @author Joseph Leedy <joseph@wagento.com>, Chirag Dodia <chirag.dodia@wagento.com>
  * @copyright Copyright (c) Wagento Creative LLC. (https://www.wagento.com/)
  * @license https://opensource.org/licenses/OSL-3.0.php Open Software License 3.0
  */
@@ -31,15 +31,15 @@ class AjaxPost implements HttpPostActionInterface
     /**
      * @var RequestInterface
      */
-    protected RequestInterface $request;
+    protected $request;
     /**
      * @var ResultFactory
      */
-    protected ResultFactory $resultFactory;
+    protected $resultFactory;
     /**
      * @var Hibp
      */
-    protected Hibp $hibp;
+    protected $hibp;
 
     /**
      * AjaxPost constructor.

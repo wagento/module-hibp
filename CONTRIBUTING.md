@@ -36,7 +36,7 @@ be added, corrected, or otherwise changed. When we are satisfied, we will merge
 your changes and add your name to the Credits section of the [README] if
 merited.
 
-[support@wagento.com]: mailto:support@wagento.com?subject=[SMS%20Notifications]%20
+[support@wagento.com]: mailto:support@wagento.com?subject=[HIBP%20Module]%20
 [Git Flow]: http://nvie.com/posts/a-successful-git-branching-model/
 [PSR-1]: https://www.php-fig.org/psr/psr-1/
 [PSR-2]: https://www.php-fig.org/psr/psr-2/

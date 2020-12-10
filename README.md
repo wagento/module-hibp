@@ -4,8 +4,8 @@ This Wagento module leverages Have I Been Pwned? to check ensure your password h
 
 Requirements
 -------------------------
-* PHP 7.3+, 7.4
-* Magento Open Source/Commerce 2.3+ or 2.4
+* PHP 7.4
+* Magento Open Source/Commerce 2.4
 
 Installation Instructions
 -------------------------

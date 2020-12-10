@@ -68,7 +68,7 @@ We welcome any and all feedback, suggestions and improvements submitted via
 issues and pull requests on [GitHub]. For guidelines, please see the
 [CONTRIBUTING.md] document.
     
- [Support]: mailto:support@wagento.com?subject=[SMS%20Notifications]%20
+ [Support]: mailto:support@wagento.com?subject=[HIBP%20Module]%20
  [GitHub]: https://github.com/wagento/module-hibp
  [README]: ./README.md
  [LICENSE.txt]: ./LICENSE.txt

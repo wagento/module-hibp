@@ -1,26 +1,29 @@
+<?php
 /**
  * Wagento Have I Been Pwned?
  *
  * Adds test to built-in password strength indicator to check if password has
  * been used on other sites.
  *
+ * @package Wagento\HIBP\Controller\Index
  * @author Joseph Leedy <joseph@wagento.com>, Chirag Dodia <chirag.dodia@wagento.com>
  * @copyright Copyright (c) Wagento Creative LLC. (https://www.wagento.com/)
  * @license https://opensource.org/licenses/OSL-3.0.php Open Software License 3.0
  */
-define([
-    'jquery',
-    'mage/url'
-], function ($, urlBuilder) {
-    'use strict';
 
-    return function hibp(password, doneCallback) {
-        const ajaxPostUrl = urlBuilder.build('hibp/index/ajaxPost');
+namespace Wagento\HIBP\Block\Adminhtml;
 
-        $.ajax({
-            url: ajaxPostUrl,
-            data: {password: password},
-            type: 'POST'
-        }).done(doneCallback);
-    };
-});
+use Magento\Backend\Block\Template;
+
+class User extends Template
+{
+    public function getConfig($path)
+    {
+        return $this->_scopeConfig->getValue($path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getBaseUrl()
+    {
+        return parent::getBaseUrl();
+    }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Wagento Have I Been Pwned?
+ *
+ * Adds test to built-in password strength indicator to check if password has
+ * been used on other sites.
+ *
+ * @author Joseph Leedy <joseph@wagento.com>, Chirag Dodia <chirag.dodia@wagento.com>
+ * @copyright Copyright (c) Wagento Creative LLC. (https://www.wagento.com/)
+ * @license https://opensource.org/licenses/OSL-3.0.php Open Software License 3.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Customer\Block\Account\Resetpassword" type="Wagento\HIBP\Rewrite\Magento\Customer\Block\Account\Resetpassword"/>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="hibp" xsi:type="object">Wagento\HIBP\Console\Command\HIBP</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -11,12 +11,10 @@
  * @license https://opensource.org/licenses/OSL-3.0.php Open Software License 3.0
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="customer_form_register">
-            <action method="setTemplate">
-                <argument name="template" xsi:type="string">Wagento_HIBP::form/register.phtml</argument>
-            </action>
-        </referenceBlock>
+        <referenceContainer name="js">
+            <block class="Wagento\HIBP\Block\Adminhtml\User" name="adminhtml.user.hibp.js" template="Wagento_HIBP::hibp_js.phtml"/>
+        </referenceContainer>
     </body>
 </page>
